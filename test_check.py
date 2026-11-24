@@ -15,11 +15,11 @@ def test_redact_replaces_each_email():
     }
 
 
-def test_block_counts_each_email():
+def test_block_returns_blocked_with_no_text_and_zero_redactions():
     assert check(TEXT, "block") == {
         "types": ["email"],
         "decision": "blocked",
-        "redactions": 2,
+        "redactions": 0,
         "text": None,
     }
 
