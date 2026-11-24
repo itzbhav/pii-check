@@ -23,6 +23,6 @@ def check(text, policy):
     return {
         "types": ["email"],
         "decision": "blocked" if blocked else "redacted",
-        "redactions": count,
+        "redactions": 0 if blocked else count,
         "text": None if blocked else redacted_text,
     }
