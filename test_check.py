@@ -33,3 +33,11 @@ def test_no_email_allows_original_text(policy):
         "redactions": 0,
         "text": text,
     }
+
+
+def test_block_reports_email_with_zero_redactions():
+    result = check(TEXT, "block")
+
+    assert result["decision"] == "blocked"
+    assert result["types"] == ["email"]
+    assert result["redactions"] == 0
